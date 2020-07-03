@@ -71,3 +71,5 @@ with open(TARGET_PATH, mode='w') as target_file:
             line.append(cases)
 
         writer.writerow(line)
+
+print('Process complete!')
