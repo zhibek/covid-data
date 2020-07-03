@@ -19,7 +19,7 @@ jobs:
         cd src && python3 main.py && cd ..
     - name: Workflow Debug
       run: |
-        pwd && ls -lah
+        ls -lah data
     - name: Set variable to check if anything changed
       id: is_updated
       run: |-
