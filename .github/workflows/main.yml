@@ -17,9 +17,6 @@ jobs:
     - name: Poll & Transform
       run: |
         cd src && python3 main.py && cd ..
-    - name: Workflow Debug
-      run: |
-        ls -lah data
     - name: Set variable to check if anything changed
       id: is_updated
       run: |-
