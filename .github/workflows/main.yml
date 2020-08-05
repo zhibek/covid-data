@@ -3,7 +3,7 @@ name: Poll & Transform coronavirus-cases_latest.csv
 on:
   push:
   schedule:
-    - cron: "7,37 9-18 * * *"
+    - cron: "7,37 9-20 * * *"
 
 jobs:
   poll_transform:
