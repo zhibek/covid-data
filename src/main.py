@@ -1,8 +1,7 @@
 import io
 import csv
+import requests
 from datetime import date, timedelta
-import urllib.request
-from sys import stdout
 
 # SOURCE_URL = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
 SOURCE_URL = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv'
@@ -11,9 +10,9 @@ START_DATE = date(2020, 1, 30)
 END_DATE = date.today()
 DAY_DELTA = timedelta(days=1)
 
-with urllib.request.urlopen(SOURCE_URL) as source_request:
-    source_response = source_request.read().decode('utf-8')
-    source_raw = io.StringIO(source_response)
+source_result = requests.get(SOURCE_URL)
+source_response = source_result.content.decode('utf-8')
+source_raw = io.StringIO(source_response)
 
 source_data = csv.reader(source_raw)
 
