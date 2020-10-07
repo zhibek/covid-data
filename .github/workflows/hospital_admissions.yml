@@ -1,9 +1,9 @@
-name: cases_by_specimen
+name: hospital_admissions
 
 on:
   push:
   schedule:
-    - cron: "5,35 10-21 * * *"
+    - cron: "15,45 10-21 * * *"
 
 jobs:
   poll_transform:
@@ -20,7 +20,7 @@ jobs:
         pip install -r requirements.txt
     - name: Poll & Transform
       run: |
-        cd src && python3 cases_by_specimen.py && cd ..
+        cd src && python3 hospital_admissions.py && cd ..
     - name: Set variable to check if anything changed
       id: is_updated
       run: |-
@@ -31,7 +31,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add data
-        git commit -m "Update cases_by_specimen for $(date +'%Y-%m-%d')"
+        git commit -m "Update hospital_admissions for $(date +'%Y-%m-%d')"
     - name: Push changes
       if: steps.is_updated.outputs.changed != 0
       uses: ad-m/github-push-action@master
