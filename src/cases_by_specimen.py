@@ -5,7 +5,7 @@ from datetime import date, timedelta
 
 # SOURCE_URL = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
 SOURCE_URL = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv'
-TARGET_PATH = '../data/target.csv'
+TARGET_PATH = '../data/cases_by_specimen.csv'
 START_DATE = date(2020, 1, 30)
 END_DATE = date.today()
 DAY_DELTA = timedelta(days=1)
@@ -37,7 +37,7 @@ for row in source_data:
             cases = int(float(cases_raw))
 
         if area_type not in target_data:
-            raise Error('Unexpected area_type "{}"'.format(area_type))
+            raise Exception('Unexpected area_type "{}"'.format(area_type))
 
         if area_code not in target_data[area_type]:
             target_data[area_type][area_code] = {

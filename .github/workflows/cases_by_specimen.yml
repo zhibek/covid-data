@@ -1,9 +1,9 @@
-name: Poll & Transform coronavirus-cases_latest.csv
+name: cases_by_specimen
 
 on:
   push:
   schedule:
-    - cron: "7,37 9-20 * * *"
+    - cron: "5,35 10-21 * * *"
 
 jobs:
   poll_transform:
@@ -20,7 +20,7 @@ jobs:
         pip install -r requirements.txt
     - name: Poll & Transform
       run: |
-        cd src && python3 main.py && cd ..
+        cd src && python3 cases_by_specimen.py && cd ..
     - name: Set variable to check if anything changed
       id: is_updated
       run: |-
