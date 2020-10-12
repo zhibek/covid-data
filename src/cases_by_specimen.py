@@ -3,8 +3,7 @@ import csv
 import requests
 from datetime import date, timedelta
 
-# SOURCE_URL = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
-SOURCE_URL = 'https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv'
+SOURCE_URL = 'https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv'
 TARGET_PATH = '../data/cases_by_specimen.csv'
 START_DATE = date(2020, 1, 30)
 END_DATE = date.today()
