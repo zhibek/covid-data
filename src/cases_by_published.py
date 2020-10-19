@@ -75,6 +75,10 @@ with open(TARGET_PATH, mode='w') as target_file:
             date_iterate += DAY_DELTA
             cases = 0
             for region in AREAS[nhs_region]:
+                if region not in target_data:
+                    print('Data regions...')
+                    print(target_data.keys())
+                    raise Exception('Region "{}" not found in parsed data!'.format(region))
                 if target_date in target_data[region]:
                     cases = cases + target_data[region][target_date]
             line.append(cases)
